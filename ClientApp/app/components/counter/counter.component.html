@@ -1,0 +1,15 @@
+<h1>One task at a time...</h1>
+
+<p>What did you accomplish today?</p>
+
+<p>Current count: <strong>{{ currentCount }}</strong></p>
+
+<ol>
+    <li>{{ inputText }}</li>
+</ol>
+
+<form>
+    <input type="text" name="inputText" [(ngModel)]="inputText" #ctrl="ngModel" />
+</form>
+
+<button (click)="submitEntry()">Submit</button>
