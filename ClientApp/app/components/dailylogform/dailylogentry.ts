@@ -4,7 +4,7 @@ export class DailyLogEntry {
         public id: number,
         public entry: string,
         public entrytype: string,
-        public date: string
+        public date: Date
     ) { }
 
 }

@@ -5,7 +5,7 @@ import { HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs/Observable';
 import { of } from 'rxjs/observable/of';
 
-import { DailyLogEntry } from '../../../dailylogentry';
+import { DailyLogEntry } from './dailylogentry';
 
 const httpOptions = {
     headers: new HttpHeaders({
@@ -25,10 +25,10 @@ export class DailyLogService {
         return this.http.get < DailyLogEntry[] >(url);
     }
 
-    //doGetById(Id: number) {
-    //    let url = `${this.apiRoot}/get/${Id}`;
-    //    this.http.get(url).subscribe(res => console.log(res.json()));
-    //}
+    getById(Id: number): Observable<DailyLogEntry> {
+        let url = `${this.apiRoot}/get/${Id}`;
+        return this.http.get<DailyLogEntry>(url);
+    }
 
     addEntry(entry: DailyLogEntry): Observable<DailyLogEntry> {
         let url = `${this.apiRoot}/create`;
@@ -45,13 +45,5 @@ export class DailyLogService {
     //    console.log("DELETE");
     //    let url = `${this.apiRoot}/remove/${Id}`;
     //    this.http.delete(url).subscribe(res => console.log(res.json()));
-    //}
-
-    //doGETAsObservableError() {
-    //    let url = `${this.apiRoot}/post`;
-    //    this.http.get(url).subscribe(
-    //        res => console.log(res.json()),
-    //        msg => console.error(`Error: ${msg.status} ${msg.statusText}`)
-    //    );
     //}
 }

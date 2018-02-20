@@ -19,11 +19,14 @@
     <!-- Files not to publish (note that the 'dist' subfolders are re-added below) -->
     <Compile Remove="ClientApp\app\components\counter\**" />
     <Compile Remove="ClientApp\app\components\fetchdata\**" />
+    <Compile Remove="ClientApp\app\components\hero-form\**" />
     <Content Remove="ClientApp\**" />
     <EmbeddedResource Remove="ClientApp\app\components\counter\**" />
     <EmbeddedResource Remove="ClientApp\app\components\fetchdata\**" />
+    <EmbeddedResource Remove="ClientApp\app\components\hero-form\**" />
     <None Remove="ClientApp\app\components\counter\**" />
     <None Remove="ClientApp\app\components\fetchdata\**" />
+    <None Remove="ClientApp\app\components\hero-form\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -31,22 +34,18 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\app-routing.module.ts" />
+    <None Remove="ClientApp\app\components\dailylogdetails\dailylogdetails.component.ts" />
     <None Remove="ClientApp\app\components\dailylogform\dailylogform.component.ts" />
     <None Remove="ClientApp\app\components\dailylogform\dailylogform.service.ts" />
-    <None Remove="ClientApp\app\components\hero-form\hero-form.component.css" />
-    <None Remove="ClientApp\app\components\hero-form\hero-form.component.html" />
-    <None Remove="ClientApp\app\components\hero-form\hero-form.component.ts" />
     <None Remove="ClientApp\app\http-error-handler.service.ts" />
     <None Remove="ClientApp\app\message.service.ts" />
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\dailylogdetails\dailylogdetails.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\dailylogform\dailylogform.service.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\dailylogform\dailylogform.component.ts" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="ClientApp\app\components\hero-form\" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

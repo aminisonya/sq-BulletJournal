@@ -9,13 +9,15 @@ import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
 import { DailyLogFormComponent } from './components/dailylogform/dailylogform.component';
+import { DailyLogDetailsComponent } from './components/dailylogdetails/dailylogdetails.component';
 
 @NgModule({
     declarations: [
         AppComponent,
         NavMenuComponent,
         HomeComponent,
-        DailyLogFormComponent
+        DailyLogFormComponent,
+        DailyLogDetailsComponent
     ],
     imports: [
         CommonModule,
@@ -26,6 +28,7 @@ import { DailyLogFormComponent } from './components/dailylogform/dailylogform.co
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
             { path: 'dailylog', component: DailyLogFormComponent },
+            { path: 'dailylog/:id', component: DailyLogDetailsComponent},
             { path: '**', redirectTo: 'home' }
         ])
     ]
