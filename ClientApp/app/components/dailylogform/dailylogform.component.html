@@ -1,17 +1,19 @@
 ﻿<div class="container">
 
-    <div class="entriesList">
+    <div class="entriesList clearfix">
         <h3>Daily Logs for {{todaysDate | date:'fullDate'}}</h3>
         <ul>
-            <li *ngFor="let entry of entriesList">
+            <li *ngFor="let entry of entriesList" class="col-sm-8">
                 <span>{{entry.entry}}</span>
-                <button type="button" class="btn btn-sm btn-default" (click)="editDailyLog(entry.id)">Edit</button>
+                <button type="button" class="btn btn-sm btn-default pull-right" (click)="editDailyLog(entry.id)">Edit</button>
+                <button type="button" class="btn btn-sm btn-danger pull-right" (click)="deleteDailyLog(entry.id)">Remove</button>
             </li>
         </ul>
     </div>
 
-    <hr/>
+    <hr class="col-sm-8"/>
 
+    <div class="col-sm-8">
     <h3>Add an entry to your daily log here</h3>
     <form #dailyLogForm="ngForm">
         <div class="form-group row">
@@ -40,6 +42,8 @@
 
         <button type="button" class="btn btn-success" (click)="add(dailyLogForm.value); dailyLogForm.reset()" [disabled]="!dailyLogForm.form.valid">Submit</button>
     </form>
+    </div>
+
 </div>
 
 <hr />

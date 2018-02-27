@@ -22,7 +22,7 @@ export class DailyLogService {
 
     getAllEntries(): Observable<DailyLogEntry[]> {
         let url = `${this.apiRoot}/getall`;
-        return this.http.get < DailyLogEntry[] >(url);
+        return this.http.get<DailyLogEntry[]>(url);
     }
 
     getById(Id: number): Observable<DailyLogEntry> {
@@ -35,15 +35,13 @@ export class DailyLogService {
         return this.http.post<DailyLogEntry>(url, entry, httpOptions);
     }
 
-    //doPUT(Id: number) {
-    //    console.log("PUT");
-    //    let url = `${this.apiRoot}/update/${Id}`;
-    //    this.http.put(url, { Id: 2, entry: "eat a hearty breakfast", entrytype: "task", date: "tuezday" }).subscribe(res => console.log(res.json()));
-    //}
+    updateEntry(entry: DailyLogEntry): Observable<DailyLogEntry> {
+        let url = `${this.apiRoot}/update/${entry.id}`;
+        return this.http.put<DailyLogEntry>(url, entry);
+    }
 
-    //doDELETE(Id: number) {
-    //    console.log("DELETE");
-    //    let url = `${this.apiRoot}/remove/${Id}`;
-    //    this.http.delete(url).subscribe(res => console.log(res.json()));
-    //}
+    deleteEntry(Id: number): Observable<DailyLogEntry> {
+        let url = `${this.apiRoot}/remove/${Id}`;
+        return this.http.delete<DailyLogEntry>(url);
+    }
 }

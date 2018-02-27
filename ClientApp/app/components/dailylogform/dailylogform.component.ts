@@ -42,4 +42,11 @@ export class DailyLogFormComponent implements OnInit {
     editDailyLog(Id: number) {
         this._router.navigate(['dailylog', Id]);
     }
+
+    deleteDailyLog(Id: number) {
+        this.dailyLogService.deleteEntry(Id)
+            .subscribe(res => console.log(res));
+
+        this.getAllEntries();
+    }
 }

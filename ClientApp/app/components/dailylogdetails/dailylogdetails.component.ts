@@ -30,7 +30,9 @@ export class DailyLogDetailsComponent implements OnInit {
 
     updateDailyLog(updatedEntry: DailyLogEntry) {
         updatedEntry.date = this.currentEntry.date;
+        updatedEntry.id = this.entryId;
 
-        console.log(updatedEntry);
+        this.dailyLogService.updateEntry(updatedEntry)
+            .subscribe(res => console.log('update was successful'));
     }
 }
